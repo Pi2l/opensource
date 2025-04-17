@@ -10,7 +10,7 @@ public class Controller {
 
   @GetMapping("/admin")
   public String getAdmin() {
-    return "Admin";
+    return "Hello Admin";
   }
 
   @GetMapping("/user")

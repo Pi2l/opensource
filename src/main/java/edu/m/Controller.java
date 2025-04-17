@@ -15,7 +15,7 @@ public class Controller {
 
   @GetMapping("/user")
   public String getUser() {
-    return "User";
+    return "Hello User";
   }
 
   @GetMapping("/guest")

@@ -1,6 +1,10 @@
 spring:
   application:
     name: m
+  data:
+    mongodb:
+      database: opensource-db
+      port: 27017
 
   security:
     oauth2:

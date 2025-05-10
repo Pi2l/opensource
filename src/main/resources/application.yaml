@@ -3,8 +3,8 @@ spring:
     name: m
   data:
     mongodb:
+      uri: mongodb://admin:admin@localhost:27017
       database: opensource-db
-      port: 27017
 
   security:
     oauth2:

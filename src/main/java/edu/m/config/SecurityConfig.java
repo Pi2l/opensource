@@ -21,7 +21,7 @@ public class SecurityConfig {
     return http
         .csrf(AbstractHttpConfigurer::disable)
         .cors(Customizer.withDefaults())
-        .authorizeHttpRequests(request -> request.anyRequest().permitAll())
+        .authorizeHttpRequests(request -> request.anyRequest().authenticated())
         .oauth2ResourceServer(auth -> auth.jwt(
                 jwt -> jwt.jwtAuthenticationConverter(converter)))
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

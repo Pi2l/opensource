@@ -1,6 +1,10 @@
 spring:
   application:
     name: m
+  data:
+    mongodb:
+      uri: mongodb://admin:admin@localhost:27017
+      database: opensource-db
 
   security:
     oauth2:

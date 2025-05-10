@@ -10,8 +10,33 @@ services:
       - KC_BOOTSTRAP_ADMIN_PASSWORD=${ADMIN_PASSWORD}
     command: start-dev
 
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - mongo-volume-1:/data/db
+    container_name: mongodb-container
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    ports:
+      - "127.0.0.1:27017:27017"
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express-container
+    depends_on:
+      - mongodb
+    environment:
+      - ME_CONFIG_MONGODB_URL=mongodb://admin:admin@mongodb:27017
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin
+    ports:
+      - "127.0.0.1:8082:8081"
+    restart: always
+
 volumes:
-  postgres-volume: {}
+  mongo-volume-1: {}
 
 networks:
   default:
